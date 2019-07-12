@@ -15,7 +15,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -41,7 +41,7 @@ return [
     // 是否开启多语言
     'lang_switch_on'         => false,
     // 默认全局过滤方法 用逗号分隔多个
-    'default_filter'         => '',
+    'default_filter'         => 'htmlspecialchars,addslashes,strip_tags',
     // 默认语言
     'default_lang'           => 'zh-cn',
     // 应用类库后缀
@@ -143,7 +143,9 @@ return [
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => [],
+    'view_replace_str'       => [
+        '__INDEX__' => '/static/index',
+    ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -238,6 +240,17 @@ return [
     'paginate'               => [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
-        'list_rows' => 15,
+        'list_rows' => 25,
     ],
+    'db2'   =>  [           
+             'type'     => 'mysql',   // 数据库类型            
+             'hostname' => '127.0.0.1',  //服务器地址                   
+             'database' => 'dedecms_dy2',  // 数据库名
+             'username' => 'root',  // 数据库用户名             
+             'password' => 'root',  // 数据库密码                  
+             'hostport' => '',   // 数据库连接端口                    
+            'params'   => [],   // 数据库连接参数                   
+            'charset'  => 'utf8',  // 数据库编码默认采用utf8                   
+             'prefix'   => 'genban_org_',   // 数据库表前缀
+             ],
 ];
